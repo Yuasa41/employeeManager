@@ -1,0 +1,21 @@
+
+
+        section {
+            border-radius: 10px;
+            max-width: 100%;
+            padding: 5%;
+            margin: 5% 20%;
+            text-align: center;
+            background-color: rgb(233, 233, 233);
+        }
+
+        table {
+            width: 90%;
+        }
+
+        td {
+            padding: 15px;
+            border: 1px solid;
+            background-color: white;
+        }
+        
