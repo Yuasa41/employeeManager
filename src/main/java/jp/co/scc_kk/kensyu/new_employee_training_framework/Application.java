@@ -23,6 +23,8 @@ public class Application {
 
         // ログイン
         Spark.get("/", (request, responce) -> new ModelAndView(model, "login"), templateEngine);
+
+        // ログイン処理
         Spark.post("/", (request, responce) -> LoginLogic.login(model, request), templateEngine);
 
 

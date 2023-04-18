@@ -11,8 +11,8 @@ import java.util.Map;
 
 public class LoginLogic {
 
-    static databaseEntity entity = new databaseEntity();
-    static loginCheck lc = new loginCheck();
+
+    static LoginDao loginDao = new LoginDao();
 
     public static ModelAndView login(Map<String, Object> model, Request request) {
 
@@ -20,13 +20,21 @@ public class LoginLogic {
         final int USER_ID = Integer.parseInt(request.queryParams("userId"));
         final String PASSWORD = request.queryParams("password");
 
-        // のちのちののちのち
-        // model.put("userId", USER_ID);
-        // model.put("password", PASSWORD);
-        if (search(USER_ID, PASSWORD)) {
-            model.put("username", entity.getSlaveName());
+
+        if (search(USER_ID, PASSWORD, request)) {
+            // 認証成功時
+
+            // FIXME デバッグ用コンソール表示
+            System.out.println(request.session().attribute("loginUser").toString());
+            System.out.println(request.session().attribute("userAuth").toString());
+
+            // モデルにセッションの値を設定
+            model.put("loginUser", request.session().attribute("loginUser").toString());
+            model.put("userAuth", request.session().attribute("userAuth").toString());
+
             return new ModelAndView(model, "finishedLogin");
         } else {
+            // 認証失敗時
             return new ModelAndView(model, "login");
         }
     }
@@ -36,16 +44,23 @@ public class LoginLogic {
      *
      * @param employeeNumber 社員番号
      */
-    public static boolean search(int id, String pass) {
+    public static boolean search(int id, String pass, Request request) {
 
         try {
             // 誰がログインしたのかを確認
-            entity = lc.search(id, pass);
+            LoginUserData loginUserData = loginDao.search(id, pass);
 
-            // ログインできるかどうか
-            if (entity.getSlaveName() != null) {
+            // ログイン可否
+            if (loginUserData.getUserName() != null) {
+                // ログイン成功
+
+                // ログイン情報をセッションに格納
+                request.session().attribute("loginUser", loginUserData.getUserId());
+                request.session().attribute("userAuth", loginUserData.getAuthority());
+
                 return true;
             } else {
+                // ログイン失敗
                 return false;
             }
         } catch (NumberFormatException ex) {
