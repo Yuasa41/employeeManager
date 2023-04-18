@@ -22,7 +22,7 @@ public class loginCheck {
     public databaseEntity search(int id, String password) throws SQLException {
 
         // ↓↓↓ DBに接続する例 ↓↓↓
-        Connection conn = null;
+        Connection conn = DriverManager.getConnection(database, user, pass);
         try {
             conn = DriverManager.getConnection(database, user, pass); // 「DBに接続する例」①
         } catch (SQLException ex) {// 「DBに接続する例」②
@@ -33,12 +33,14 @@ public class loginCheck {
 
         // ↓↓↓ DBを参照する例 ↓↓↓
         // String sql = "select * from employees where empno = ?";// 「DBを参照する例」①
-        String sql = "select slaves.slavename from users,slaves" + " where users.id = slaves.slavenum"
-                + "and users.id = ?" + "and users.password = ?";
+        String sql =
+                "SELECT slavename FROM slaves JOIN users ON users.id = slaves.slavenum WHERE users.id = ?  and users.password = ?";
+
+
 
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setInt(1, id);
-        ps.setString(1, password);
+        ps.setString(2, password);
         ResultSet rs = ps.executeQuery(); // 「DBを参照する例」②③
 
         // データ取得
@@ -46,6 +48,7 @@ public class loginCheck {
 
         while (rs.next()) { // 「DBを参照する例」④
             de.setSlaveName(rs.getString("slavename")); // 「DBを参照する例」⑤
+
         }
         // ↑↑↑ DBに接続する例 ↑↑↑
 
