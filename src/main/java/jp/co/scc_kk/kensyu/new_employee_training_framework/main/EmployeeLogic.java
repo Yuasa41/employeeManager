@@ -23,6 +23,7 @@ public class EmployeeLogic {
 
         try {
             employeeEntity = employeeDao.search(employeeEntity);
+            model.put("employeeList", employeeEntity.employeeList);
 
             for (EmployeeData data : employeeEntity.employeeList) {
                 data.info();
@@ -33,7 +34,7 @@ public class EmployeeLogic {
         }
 
 
-        return new ModelAndView(model, "");
+        return new ModelAndView(model, "search");
 
     }
 
