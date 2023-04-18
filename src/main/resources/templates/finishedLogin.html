@@ -3,14 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <title>logined</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/4b723a5fc4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/form.css">
 </head>
 <body>
-    <h1>社員情報管理システム</h1>
-    ログイン中のユーザー：<p th:text="${username}"></p>
+    <header>
+        <h1>社員情報管理システム</h1>
+        ログイン中のユーザー：
+        <p th:text="${username}"></p>
+    </header>
     
-    <p>機能一覧</p>
-    <button>社員情報検索</button>
-    <button>&lt;管理者用&gt;システムユーザメンテナンス</button>
-    <button>社員情報検索</button>
+    <article>
+        <h2 id="titleHead">機能一覧</h2>
+        <div id="buttons">
+            <button class="btn btn-success" data-bs-toggle="button">社員情報検索</button>
+            <button class="btn btn-success" data-bs-toggle="button">&lt;管理者用&gt;<br>システムユーザ<br>メンテナンス</button>
+            <button class="btn btn-primary" data-bs-toggle="button">機能C</button>
+        </div>
+    </article>
 </body>
 </html>
