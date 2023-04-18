@@ -6,8 +6,12 @@ import spark.Request;
 import java.sql.SQLException;
 import java.util.Map;
 
-// 明日やること
-// 実行確認
+/**
+ * ログイン処理のロジックです。
+ * 
+ * @author atsutaka-yuasa
+ *
+ */
 
 public class LoginLogic {
 

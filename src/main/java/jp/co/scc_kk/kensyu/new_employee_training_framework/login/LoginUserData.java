@@ -1,5 +1,11 @@
 package jp.co.scc_kk.kensyu.new_employee_training_framework.login;
 
+/**
+ * ログインユーザ情報を保存するインスタンスです。
+ * 
+ * @author atsutaka-yuasa
+ *
+ */
 public class LoginUserData {
 
     int userId;
