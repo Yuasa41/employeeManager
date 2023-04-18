@@ -11,6 +11,7 @@ import java.util.Map;
 
 public class LoginLogic {
 
+    static databaseEntity entity = new databaseEntity();
     static loginCheck lc = new loginCheck();
 
     public static ModelAndView login(Map<String, Object> model, Request request) {
@@ -19,14 +20,11 @@ public class LoginLogic {
         final int USER_ID = Integer.parseInt(request.queryParams("userId"));
         final String PASSWORD = request.queryParams("password");
 
-
-        System.out.println(USER_ID);
-        System.out.println(PASSWORD);
-
         // のちのちののちのち
         // model.put("userId", USER_ID);
         // model.put("password", PASSWORD);
         if (search(USER_ID, PASSWORD)) {
+            model.put("username", entity.getSlaveName());
             return new ModelAndView(model, "finishedLogin");
         } else {
             return new ModelAndView(model, "login");
@@ -41,9 +39,8 @@ public class LoginLogic {
     public static boolean search(int id, String pass) {
 
         try {
-            // EmployeeEntity entity = dao.search(Integer.parseInt(employeeNumber));
-            databaseEntity entity = lc.search(id, pass);
-            System.out.println(entity.getSlaveName());
+            // 誰がログインしたのかを確認
+            entity = lc.search(id, pass);
 
             // ログインできるかどうか
             if (entity.getSlaveName() != null) {
