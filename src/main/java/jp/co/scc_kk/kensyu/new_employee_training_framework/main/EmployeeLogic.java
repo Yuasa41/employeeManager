@@ -1,9 +1,39 @@
 package jp.co.scc_kk.kensyu.new_employee_training_framework.main;
 
+import spark.ModelAndView;
+
+import java.sql.SQLException;
+import java.util.Map;
+
+/**
+ * 社員情報管理ロジックです。
+ * 
+ * @author atsutaka-yuasa
+ *
+ */
+
 public class EmployeeLogic {
 
+    static EmployeeDao employeeDao = new EmployeeDao();
 
-    public void search() {
+
+    public static ModelAndView search(Map<String, Object> model) {
+
+        EmployeeEntity employeeEntity = new EmployeeEntity();
+
+        try {
+            employeeEntity = employeeDao.search(employeeEntity);
+
+            for (EmployeeData data : employeeEntity.employeeList) {
+                data.info();
+            }
+        } catch (SQLException e) {
+            // TODO 自動生成された catch ブロック
+            e.printStackTrace();
+        }
+
+
+        return new ModelAndView(model, "");
 
     }
 

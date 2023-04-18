@@ -1,5 +1,11 @@
 package jp.co.scc_kk.kensyu.new_employee_training_framework.main;
 
+/**
+ * 社員情報を管理します。
+ * 
+ * @author atsutaka-yuasa
+ *
+ */
 public class EmployeeData {
 
     int employeeId;
