@@ -1,6 +1,8 @@
 package jp.co.scc_kk.kensyu.new_employee_training_framework.main;
 
 import spark.ModelAndView;
+import spark.Request;
+import spark.Response;
 
 import java.sql.SQLException;
 import java.util.Map;
@@ -42,7 +44,23 @@ public class EmployeeLogic {
 
     }
 
-    public void registOne() {
+    public static ModelAndView registOne(Map<String, Object> model, Request request, Response response)
+            throws SQLException {
+        final int EMPLOYEE_ID = Integer.parseInt(request.queryParams("employeeId"));
+        final String EMPLOYEE_NAME = request.queryParams("employeeName");
+        final int DEPARTMENT_ID = Integer.parseInt(request.queryParams("departmentName"));
+
+        EmployeeData employeeData = new EmployeeData();
+        employeeData.setEmployeeId(EMPLOYEE_ID);
+        employeeData.setEmployeeName(EMPLOYEE_NAME);
+
+        employeeData.setDepartmentId(DEPARTMENT_ID);
+
+        employeeDao.insert(employeeData);
+
+        response.redirect("/employee/search");
+
+        return new ModelAndView(model, "search");
 
     }
 

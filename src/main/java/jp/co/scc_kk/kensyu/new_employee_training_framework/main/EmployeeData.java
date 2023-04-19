@@ -14,6 +14,16 @@ public class EmployeeData {
 
     int departmentId;
 
+    String departmentName;
+
+    public String getDepartmentName() {
+        return departmentName;
+    }
+
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
+    }
+
     public int getEmployeeId() {
         return employeeId;
     }
@@ -42,6 +52,7 @@ public class EmployeeData {
         System.out.println(employeeId);
         System.out.println(employeeName);
         System.out.println(departmentId);
+        System.out.println(departmentName);
     }
 
 

@@ -30,6 +30,10 @@ public class Application {
 
         Spark.get("/employee/search", (request, responce) -> EmployeeLogic.search(model), templateEngine);
         Spark.get("/employee/regist", (request, responce) -> new ModelAndView(model, "regist"), templateEngine);
+        Spark.post("/employee/regist", (request, responce) -> EmployeeLogic.registOne(model, request, responce),
+                templateEngine);
+
+        // Spark.get("/employee/update", (request, responce) -> new ModelAndView(model, "regist"), templateEngine);
 
         Spark.get("/logout", (request, responce) -> LogoutLogic.logout(model, request, responce), templateEngine);
 
