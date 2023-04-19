@@ -7,25 +7,44 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/4b723a5fc4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/form.css">
+    <link rel="stylesheet" href="/css/search.css">
     <title>system</title>
 </head>
 
 <body>
-    <h1>社員情報管理システム</h1>
-    <input type="text" placeholder="社員番号で検索"><button id="add">+</button><button>+CSV</button><br>
-    <table>
-        <tr>
-            <th>社員番号</th>
-            <th>氏名</th>
-            <th>所属部署</th>
-        </tr>
-        <tr th:each="emp:${employeeList}">
-            <td th:text="${emp.employeeId}">2222222</td>
-            <td th:text="${emp.employeeName}">よしひこ</td>
-            <td>セキュリティサービス</td>
-        </tr>
-    </table>
+    <header><a href="/">
+            <h1>EmployeesManager</h1>
+        </a><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a></header>
+    <main>
+        <div class="search-body">
+            <div class="search-form">
+                <input class="form-control" type="text" placeholder="社員番号で検索">
+                <button class="btn btn-primary" id="add"><i class="fa-solid fa-plus"></i></button>
+                <button class="btn btn-success"><i class="fa-solid fa-plus"></i> <i class="fa-solid fa-file-csv"></i></button>
+            </div>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>社員番号</th>
+                        <th>氏名</th>
+                        <th>所属部署</th>
+                        <th>編集・削除</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="emp:${employeeList}">
+                        <td th:text="${emp.employeeId}">2222222</td>
+                        <td th:text="${emp.employeeName}">よしひこ</td>
+                        <td>セキュリティサービス</td>
+                        <td class="td-update"><button class="btn btn-info"><i
+                                    class="fa-solid fa-pen"></i></button><button class="btn btn-secondary"><i
+                                    class="fa-solid fa-trash"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
 
 </body>
 

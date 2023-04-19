@@ -1,0 +1,23 @@
+@charset "UTF-8";
+header h4{
+    margin:15px;
+}
+.index-button{
+    display: flex;
+    justify-content: space-between;
+}
+.button{
+    background-color:rgb(191, 191, 246) ;
+    margin: 10px;
+    width: 30vw;
+    height:30vh;
+    font-size: 1.6em;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 1px rgba(0,0,0,0.5);
+    font-weight: bold;
+}
+.button.admin{
+    background-color:rgb(191, 246, 214) ;
+    font-size: 1.1em;
+}

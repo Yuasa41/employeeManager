@@ -28,15 +28,12 @@ public class LoginLogic {
         if (search(USER_ID, PASSWORD, request)) {
             // 認証成功時
 
-            // FIXME デバッグ用コンソール表示
-            System.out.println(request.session().attribute("loginUser").toString());
-            System.out.println(request.session().attribute("userAuth").toString());
-
             // モデルにセッションの値を設定
             model.put("loginUser", request.session().attribute("loginUser").toString());
+            model.put("loginUserName", request.session().attribute("loginUserName").toString());
             model.put("userAuth", request.session().attribute("userAuth").toString());
 
-            return new ModelAndView(model, "finishedLogin");
+            return new ModelAndView(model, "index");
         } else {
             // 認証失敗時
             return new ModelAndView(model, "login");
@@ -60,6 +57,7 @@ public class LoginLogic {
 
                 // ログイン情報をセッションに格納
                 request.session().attribute("loginUser", loginUserData.getUserId());
+                request.session().attribute("loginUserName", loginUserData.getUserName());
                 request.session().attribute("userAuth", loginUserData.getAuthority());
 
                 return true;

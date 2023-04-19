@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+.table{
+    padding: 20px;
+    width: 50vw;
+    height:40vh;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 1px rgba(0,0,0,0.5);
+}
+.table th{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.table td{
+    font-size: 1.1em;
+}
+.table .td-update button{
+    margin:0 5px;
+    color:white;
+}
+.search-body{
+    margin:5% 20%;
+    padding:20px 5%;
+    text-align:center;
+    border-radius: 10px;
+    background-color: rgba(233, 233, 233,0.5);
+}
+.search-form{
+    display: flex;
+}
+.search-form button{
+    color: white;
+    font-size: 1.3em;
+    margin-left: 3%;
+}
+.form-control{
+    width: 30%;
+}

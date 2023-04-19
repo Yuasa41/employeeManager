@@ -74,12 +74,6 @@ public class LoginDao {
 
         }
 
-        // FIXME デバッグ用コンソール表示
-        System.out.println("ユーザID：" + loginUserData.userId);
-
-        System.out.println("ユーザ名：" + loginUserData.userName);
-
-        System.out.println("権限コード：" + loginUserData.authority);
 
         return loginUserData;
     }
