@@ -1,8 +1,9 @@
 .btn{
     text-align:center; 
     margin-top:10px;
-    height:80px;
-    width:33%
+    height:50px;
+    width:33%;
+    font-size:1.2em;
 }
 #buttons{
     max-width: 100%;
