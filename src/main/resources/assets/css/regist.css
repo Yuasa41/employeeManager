@@ -1,0 +1,19 @@
+@charset "UTF-8";
+section {
+    border-radius: 10px;
+    max-width: 100%;
+    padding: 5%;
+    margin: 5% 20%;
+    text-align: center;
+    background-color: rgb(233, 233, 233);
+}
+.regi-form{
+    width: 50%;
+    margin:0 26%;
+}
+.regi-btn{
+    margin:0 20%;
+    max-width:70%;
+    display: flex;
+    justify-content: space-between;
+}

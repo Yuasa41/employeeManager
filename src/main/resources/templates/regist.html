@@ -6,25 +6,31 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/4b723a5fc4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/form.css">
+    <link rel="stylesheet" href="/css/regist.css">
     <title>登録</title>
 </head>
 <body>
 
-        <h1>社員情報管理システム</h1>
-        <p></div>社員情報を記入してください。</p>
+        <header><a href="/">
+            <h1>EmployeesManager</h1>
+        </a><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a></header>
+        <section>
+            <h2>社員情報登録</h2>
         <form action="/employee/regist" method="post">
-        社員番号<input type="text" name="employeeId" class="regiTxt"><br>
-        氏名<input type="text" name="employeeName" class="regiTxt"><br>
-        所属部署<select name="departmentName">
+        <label>社員番号</label><input type="text" name="employeeId" class="form-control regi-form"><br>
+        <label>氏名</label><input type="text" name="employeeName" class="form-control regi-form"><br>
+        <label>所属部署</label><select class="form-select regi-form" name="departmentName">
             <option value="10">経理</option>
             <option value="20">研究開発</option>
             <option value="30">営業</option>
             <option value="40">管理</option>
         </select><br>
-        <button class="regiButton" id="return">戻る</button>
-        <button class="regiButton" id="submit" type="submit">登録確認</button>
+        <div class="regi-btn">
+            <button class="regiButton btn btn-secondary" id="return">戻る</button>
+        <button class="regiButton btn btn-primary" id="submit" type="submit">登録確認</button>
+        </div>
         </form>
+        </section>
     
 </body>
 </html>
