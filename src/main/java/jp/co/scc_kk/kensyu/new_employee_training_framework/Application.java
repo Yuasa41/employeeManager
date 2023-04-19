@@ -29,6 +29,7 @@ public class Application {
         Spark.post("/", (request, responce) -> LoginLogic.login(model, request), templateEngine);
 
         Spark.get("/employee/search", (request, responce) -> EmployeeLogic.search(model), templateEngine);
+        Spark.get("/employee/regist", (request, responce) -> new ModelAndView(model, "regist"), templateEngine);
 
         Spark.get("/logout", (request, responce) -> LogoutLogic.logout(model, request, responce), templateEngine);
 
