@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 4-B,5,B,6-B -->
+<h1>社員情報管理システム</h1>
+以下の社員情報を<div th:text="${}"></div>します。よろしいですか。
+<div th:if="${}">
+    <table>
+        <tr><th>hogehoge</th><th>hogehoge</th><th>hogehoge</th></tr>
+        <tr><td>hogehoge</td><td>hogehoge</td><td>hogehoge</td></tr>
+    </table>
+</div>
+<div th:if="${}">
+    社員番号<div th:text="${}"></div>
+    氏名<div th:text="${}"></div>
+    所属部署<div th:text="${}"></div>
+</div>
+
+<button class="regiButton">戻る</button><button class="regiButton" th:text="${}"></button>
+</body>
+</html>
