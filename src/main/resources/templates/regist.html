@@ -10,11 +10,18 @@
     <title>登録</title>
 </head>
 <body>
-    <h1>社員情報管理システム</h1>
-    <p>登録する社員情報を記入してください。</p>
-    社員番号<input type="text" class="regiTxt"><br>
-    氏名<input type="text" class="regiTxt"><br>
-    所属部署<input type="text" class="regiTxt"><br>
-    <button class="regiButton">戻る</button><button class="regiButton">登録確認</button>
+    <!-- 4-a,5-a.6-a -->
+    <div th:if="${}">
+        <h1>社員情報管理システム</h1>
+        <p><div th:text="${}"></div>社員情報を記入してください。</p>
+        社員番号<input type="text" class="regiTxt"><br>
+        氏名<input type="text" class="regiTxt"><br>
+        所属部署<input type="text" class="regiTxt"><br>
+    </div>
+    <div th:if="${}">
+        インポートする社員情報のCSVファイルを選択してください。
+        CSVファイル<input type="text" readonly><input type="file">
+    </div>
+    <button class="regiButton">戻る</button><button class="regiButton" th:text="${}"></button>
 </body>
 </html>
