@@ -14,9 +14,9 @@
     <div th:if="${}">
         <h1>社員情報管理システム</h1>
         <p><div th:text="${}"></div>社員情報を記入してください。</p>
-        社員番号<input type="text" class="regiTxt"><br>
-        氏名<input type="text" class="regiTxt"><br>
-        所属部署<input type="text" class="regiTxt"><br>
+        社員番号<input type="text" name="employeeId" class="regiTxt"><br>
+        氏名<input type="text" name="employeeName" class="regiTxt"><br>
+        所属部署<input type="text" name="departmentName" class="regiTxt"><br>
     </div>
     <div th:if="${}">
         インポートする社員情報のCSVファイルを選択してください。
