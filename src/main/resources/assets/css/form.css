@@ -34,3 +34,21 @@ th,tr {
 .titleHead{
     text-align:left;
 } 
+/*
+ワイのかきかき
+*/
+.titleHead{
+    text-align:left;
+} 
+input {
+    margin-right:1%;
+}
+button{
+    margin-left:1%;
+}
+.regiTxt{
+    margin-bottom:10px;
+}
+.regiButton{
+    background-color:aquamarine;
+}
