@@ -10,21 +10,11 @@
     <title>登録</title>
 </head>
 <body>
-
-        <h1>社員情報管理システム</h1>
-        <p></div>社員情報を記入してください。</p>
-        <form action="/employee/regist" method="post">
-        社員番号<input type="text" name="employeeId" class="regiTxt"><br>
-        氏名<input type="text" name="employeeName" class="regiTxt"><br>
-        所属部署<select name="departmentName">
-            <option value="10">経理</option>
-            <option value="20">研究開発</option>
-            <option value="30">営業</option>
-            <option value="40">管理</option>
-        </select><br>
+    <form action="/employee/regist_csv" method="post">
+        インポートする社員情報のCSVファイルを選択してください。
+        CSVファイル<input type="text" readonly><input type="file">
         <button class="regiButton" type="submit">登録</button>
         </form>
-
     <button class="regiButton">戻る</button>
 </body>
 </html>

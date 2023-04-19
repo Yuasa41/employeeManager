@@ -39,10 +39,11 @@
                     <tr th:each="emp:${employeeList}">
                         <td th:text="${emp.employeeId}">2222222</td>
                         <td th:text="${emp.employeeName}">よしひこ</td>
-                        <td>セキュリティサービス</td>
-                        <td class="td-update"><button class="btn btn-info"><i
-                                    class="fa-solid fa-pen"></i></button><button class="btn btn-secondary"><i
-                                    class="fa-solid fa-trash"></i></button></td>
+                        <td th:text="${emp.departmentName}">セキュリティサービス</td>
+                        <td class="td-update"><form action="/employee/update"><input type="hidden" name="employeeId" th:value="${emp.employeeId}"><button type="submit" class="btn btn-info"><i
+                                    class="fa-solid fa-pen"></i></button></form>
+                                    <form action="/employee/delete"><input type="hidden" name="employeeId" th:value="${emp.employeeId}"><button type="submit" class="btn btn-secondary"><i
+                                    class="fa-solid fa-trash"></i></button></form></td>
                     </tr>
                 </tbody>
             </table>
